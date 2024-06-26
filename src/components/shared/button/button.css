@@ -1,0 +1,25 @@
+.button {
+  height: 50px;
+  width: 150px;
+  font-size: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:has(.button__loader) > .button__label {
+    display: none;
+  }
+
+  &__icon {
+
+  }
+
+  &__label {
+
+  }
+
+  &__loader {
+    position: absolute;
+  }
+}
