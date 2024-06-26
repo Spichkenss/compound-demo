@@ -22,7 +22,7 @@ export const Modal = ({children, isOpen, onClose}: IModalProps) => {
   return (
     <Lazy condition={isOpen}>
       <Portal>
-        <div className={'modal'} data-state={isOpen ? 'opened' : 'closed'}>
+        <div className={'modal'} data-open={isOpen}>
           <div className={'overlay'}>
             <div className={'content'} ref={ref}>
               {children}
