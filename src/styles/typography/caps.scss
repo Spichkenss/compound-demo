@@ -1,0 +1,45 @@
+// условный размер: font-family, font-weight, font-size, line-height, letter-spacing
+$bold-param: bold;
+$regular-param: regular;
+
+$bold-value: 600;
+$regular-value: 400;
+
+$body-params: (
+                (400, $bold-param): ("Inter", $bold-value, 13px, 16px),
+                (400, $regular-param): ("Inter", $regular-value, 13px, 16px),
+                (300, $bold-param): ("Inter", $bold-value, 11px, 12px),
+                (300, $regular-param): ("Inter", $regular-value, 11px, 12px),
+);
+
+@mixin get_caps_params($size_type, $weight) {
+  $params: map-get($body-params, ($size_type, $weight));
+
+  font: {
+    family: nth($params, 1), sans-serif;
+    weight: nth($params, 2);
+    size: nth($params, 3);
+  };
+  line-height: nth($params, 4);
+  text-transform: uppercase;
+}
+
+@mixin get_caps_variants($size) {
+  &-bold {
+    @include get_caps_params($size, $bold-param);
+  }
+
+  &-regular {
+    @include get_caps_params($size, $regular-param);
+  }
+}
+
+.caps {
+  &-400 {
+    @include get_caps_variants(400);
+  }
+
+  &-300 {
+    @include get_caps_variants(300)
+  }
+}

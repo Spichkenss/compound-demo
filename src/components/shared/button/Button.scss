@@ -1,0 +1,179 @@
+@use "/src/styles/vars" as vars;
+@use "/src/styles/typography/typography" as typography;
+
+$button_params: (
+        sm: (32px, 8px, 14px, 6px),
+        md: (44px, 10px, 16px, 8px),
+        lg: (56px, 14px, 24px, 10px)
+);
+
+// Основные стили кнопки
+@mixin button_appearance($backgroundColor, $textColor) {
+  background: $backgroundColor;
+  color: $textColor;
+  font: {
+    family: "Inter", sans-serif;
+  };
+}
+
+// Стили при наведении на кнопку
+@mixin button_hover($hover_background, $hover_color) {
+  &:not(:disabled):hover {
+    color: transparent;
+  }
+
+  &:not(:disabled):not([data-loading=true]):hover {
+    background: $hover_background;
+    color: $hover_color;
+    border-color: $hover_color;
+    cursor: pointer;
+  }
+}
+
+// Стили при клике на кнопку
+@mixin button_pressed($pressed_background, $pressed_color) {
+  &:not(:disabled):not([data-loading=true]):active {
+    background: $pressed_background;
+    color: $pressed_color;
+  }
+}
+
+// Стили при выключенной кнопки
+@mixin button_disabled($disabled_background, $disabled_text) {
+  &:disabled {
+    background: $disabled_background;
+    color: $disabled_text;
+    border: none;
+  }
+}
+
+
+@mixin button_params($size_type) {
+  $params: map-get($button_params, $size_type);
+
+  @if $params {
+    max-height: nth($params, 1);
+    padding-block: nth($params, 2);
+    padding-inline: nth($params, 3);
+    border-radius: nth($params, 4);
+    //letter-spacing: nth($params, 5);
+  }
+
+  &[data-loading=true] {
+    color: transparent;
+  }
+}
+
+$icon_button_sizes: (
+        sm: (32px),
+        md: (44px),
+        lg: (56px),
+);
+
+
+@mixin icon_button_size($size_type) {
+  $size: map-get($icon_button_sizes, $size_type);
+
+  @if $size {
+    max-inline-size: nth($size, 1);
+    aspect-ratio: 1/1;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+
+  outline: none;
+  border: none;
+  font-weight: 600;
+  height: 100%;
+
+  & .button__loader {
+    position: absolute;
+  }
+
+  & .button__icon {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  // intent
+  &.intent {
+
+    &__primary {
+      @include button_appearance(vars.$primary, vars.$text-primary);
+      @include button_hover(vars.$primary-hover, vars.$text-primary);
+      @include button_pressed(vars.$action-600, vars.$text-primary);
+      @include button_disabled(vars.$neutral-200, vars.$text-secondary);
+    }
+
+    &__secondary {
+      @include button_appearance(vars.$neutral-200, vars.$primary);
+      @include button_hover(vars.$neutral-200, vars.$primary-hover);
+      @include button_pressed(vars.$neutral-200, vars.$action-400);
+      @include button_disabled(vars.$neutral-200, vars.$text-secondary);
+    }
+
+    &__outline {
+      @include button_appearance(transparent, vars.$primary);
+      @include button_hover(vars.$neutral-100, vars.$action-400);
+      @include button_pressed(vars.$neutral-100, vars.$action-400);
+      @include button_disabled(vars.$neutral-200, vars.$text-secondary);
+      border: 1px solid vars.$primary;
+    }
+
+    &__ghost {
+      @include button_appearance(transparent, vars.$primary);
+      @include button_hover(vars.$neutral-100, vars.$action-400);
+      @include button_pressed(vars.$neutral-100, vars.$action-400);
+      @include button_disabled(vars.$neutral-200, vars.$text-secondary);
+    }
+
+    &__uncontained {
+      @include button_appearance(transparent, vars.$primary);
+      @include button_hover(transparent, vars.$primary-hover);
+      @include button_pressed(vars.$primary-hover, vars.$primary-hover);
+      @include button_disabled(none, vars.$text-secondary);
+      max-block-size: none;
+      max-inline-size: none;
+    }
+  }
+
+  // size
+  &.size {
+    &__small {
+      @include button_params("sm");
+      @extend .body-500-bold;
+    }
+
+    &__medium {
+      @include button_params("md");
+      @extend .body-500-bold;
+    }
+
+    &__large {
+      @include button_params("lg");
+      @extend .body-600-bold;
+    }
+  }
+
+  // shape
+  &.shape {
+
+    &__square.size__small {
+      @include icon_button_size("sm");
+    }
+
+    &__square.size__medium {
+      @include icon_button_size("md");
+    }
+
+    &__square.size__large {
+      @include icon_button_size("lg");
+    }
+  }
+}

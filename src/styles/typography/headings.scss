@@ -1,0 +1,62 @@
+$bold-value: 600;
+
+// условный размер: font-family, font-weight, font-size, line-height, letter-spacing
+$headings-params: (
+        800: ("Inter", $bold-value, 40px, 48px, -0.3px),
+        700: ("Inter", $bold-value, 36px, 44px, -0.3px),
+        600: ("Inter", $bold-value, 32px, 40px, -0.3px),
+        500: ("Inter", $bold-value, 28px, 36px, -0.3px),
+        400: ("Inter", $bold-value, 24px, 30px, -0.3px),
+        300: ("Inter", $bold-value, 19px, 24px, -0.3px),
+        200: ("Inter", $bold-value, 17px, 22px, -0.3px),
+        100: ("Inter", $bold-value, 15px, 20px, -0.3px)
+);
+
+@mixin get_heading_params($size_type) {
+  $params: map-get($headings-params, $size_type);
+
+
+  font: {
+    family: nth($params, 1), sans-serif;
+    weight: nth($params, 2);
+    size: nth($params, 3);
+  };
+  line-height: nth($params, 4);
+  letter-spacing: nth($params, 5);
+
+}
+
+
+.heading {
+  &-800 {
+    @include get_heading_params(800);
+  }
+
+  &-700 {
+    @include get_heading_params(700);
+  }
+
+  &-600 {
+    @include get_heading_params(600);
+  }
+
+  &-500 {
+    @include get_heading_params(500);
+  }
+
+  &-400 {
+    @include get_heading_params(400);
+  }
+
+  &-300 {
+    @include get_heading_params(300);
+  }
+
+  &-200 {
+    @include get_heading_params(200);
+  }
+
+  &-100 {
+    @include get_heading_params(100);
+  }
+}

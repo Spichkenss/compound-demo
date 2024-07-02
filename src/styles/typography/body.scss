@@ -1,0 +1,63 @@
+// условный размер: font-family, font-weight, font-size, line-height, letter-spacing
+$bold-param: bold;
+$regular-param: regular;
+
+$bold-value: 600;
+$regular-value: 400;
+
+$body-params: (
+                (700, $bold-param): ("Inter", $bold-value, 19px, 28px),
+                (700, $regular-param): ("Inter", $regular-value, 19px, 28px),
+                (600, $bold-param): ("Inter", $bold-value, 17px, 28px),
+                (600, $regular-param): ("Inter", $regular-value, 17px, 28px),
+                (500, $bold-param): ("Inter", $bold-value, 15px, 24px),
+                (500, $regular-param): ("Inter", $regular-value, 15px, 24px),
+                (400, $bold-param): ("Inter", $bold-value, 13px, 20px),
+                (400, $regular-param): ("Inter", $regular-value, 13px, 20px),
+                (300, $bold-param): ("Inter", $bold-value, 11px, 16px),
+                (300, $regular-param): ("Inter", $regular-value, 11px, 16px),
+);
+
+@mixin get_body_params($size_type, $weight) {
+  $params: map-get($body-params, ($size_type, $weight));
+
+
+  font: {
+    family: nth($params, 1), sans-serif;
+    weight: nth($params, 2);
+    size: nth($params, 3);
+  };
+  line-height: nth($params, 4);
+}
+
+@mixin get_body_variants($size) {
+  &-bold {
+    @include get_body_params($size, $bold-param);
+  }
+
+  &-regular {
+    @include get_body_params($size, $regular-param);
+  }
+}
+
+.body {
+  &-700 {
+    @include get_body_variants(700);
+  }
+
+  &-600 {
+    @include get_body_variants(600);
+  }
+
+  &-500 {
+    @include get_body_variants(500);
+  }
+
+  &-400 {
+    @include get_body_variants(400);
+  }
+
+  &-300 {
+    @include get_body_variants(300);
+  }
+}

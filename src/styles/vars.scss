@@ -1,0 +1,184 @@
+// Base colors
+$black-primary: #121213;
+$black-secondary: #1B1B1C;
+$black-divider: #202022;
+
+$grey-primary: #262629;
+$grey-hovered: #2D2D30;
+$grey-pressed: #333337;
+$grey-container-disabled: #67686D;
+
+$primary: #0083FD;
+$primary-hover: #0A6AC2;
+$primary-active: #084F91;
+$primary-opacity: rgba(0, 131, 253, 0.08);
+$dark-blue: #254059;
+
+// Background
+$background-primary: #1A1B1E;
+$background-secondary: #2E3033;
+$background-transparent: rgba(0, 0, 0, .56);
+
+// Neutral
+$neutral-600: #203148;
+$neutral-500: #546378;
+$neutral-400: #707E90;
+$neutral-300: rgba(97, 131, 162, 0.43);
+$neutral-200: rgba(97, 131, 162, 0.26);
+$neutral-100: rgba(97, 131, 162, 0.16);
+$neutral-50: rgba(97, 131, 162, 0.1);
+$neutral-100-opaque: #E6EBF0;
+$neutral-50-opaque: #F0F3F6;
+
+// Action
+$action-600: #0045BD;
+$action-500: #005BFF;
+$action-400: #2F9BF9;
+$action-300: #5CCAFA;
+$action-100: rgba(47, 155, 249, 0.3);
+$action-50: rgba(47, 155, 249, 0.12);
+$action-25: rgba(47, 155, 249, 0.05);
+$action-100-opaque: #C1E1FE;
+$action-50-opaque: #E6F3FE;
+$action-25-opaque: #F4FAFE;
+
+// Success
+$success-600: #0B5E1F;
+$success-500: #008028;
+$success-400: #1DAE40;
+$success-300: #34D865;
+$success-100: rgba(29, 174, 64, 0.3);
+$success-50: rgba(29, 174, 64, 0.12);
+$success-25: rgba(29, 174, 64, 0.05);
+$success-100-opaque: #BCE7C6;
+$success-50-opaque: #E3F5E8;
+$success-25-opaque: #F3FBF5;
+
+// Alert
+$alert-600: #9E002C;
+$alert-500: #D3003D;
+$alert-400: #F96186;
+$alert-300: #FF95B8;
+$alert-100: rgba(249, 97, 134, 0.3);
+$alert-50: rgba(249, 97, 134, 0.12);
+$alert-25: rgba(249, 97, 134, 0.05);
+$alert-100-opaque: #FED0DB;
+$alert-50-opaque: #FEECF0;
+$alert-25-opaque: #FEF7F9;
+
+// Warning
+$warning-600: #794612;
+$warning-500: #A6591A;
+$warning-400: #F7B200;
+$warning-300: #FFD62C;
+$warning-100: rgba(247, 178, 0, 0.3);
+$warning-50: rgba(247, 178, 0, 0.12);
+$warning-25: rgba(247, 178, 0, 0.05);
+$warning-100-opaque: #FDE8B3;
+$warning-50-opaque: #FEF5E0;
+$warning-25-opaque: #FEFBF2;
+
+// Negative
+$negative-600: #8E2E36;
+$negative-500: #E83827;
+$negative-400: #FF7965;
+$negative-300: #FC9A83;
+$negative-100: rgba(255, 121, 101, 0.3);
+$negative-50: rgba(255, 121, 101, 0.12);
+$negative-25: rgba(255, 121, 101, 0.05);
+$negative-100-opaque: #FFD7D1;
+$negative-50-opaque: #FFEFEC;
+$negative-25-opaque: #FFF8F7;
+
+// Info
+$info-600: #155A69;
+$info-500: #007A91;
+$info-400: #06A7BB;
+$info-300: #4FCEE4;
+$info-100: rgba(6, 167, 187, 0.3);
+$info-50: rgba(6, 167, 187, 0.12);
+$info-25: rgba(6, 167, 187, 0.05);
+$info-100-opaque: #B5E5EB;
+$info-50-opaque: #E1F4F6;
+$info-25-opaque: #F2FAFB;
+
+// Pro
+$pro-600: #4E1BD9;
+$pro-500: #694EFB;
+$pro-400: #8D8BFF;
+$pro-300: #B1B9FF;
+$pro-100: rgba(141, 139, 255, 0.3);
+$pro-50: rgba(141, 139, 255, 0.12);
+$pro-25: rgba(141, 139, 255, 0.05);
+$pro-100-opaque: #DDDDFF;
+$pro-50-opaque: #F1F1FF;
+$pro-25-opaque: #F9F9FF;
+
+// Status
+$status-success: #35D1A2;
+$status-warning: #E5B91A;
+$status-diagram: #FF945C;
+$status-error: #E93C5B;
+$status-info: #4DB7D9;
+
+// Red
+$red-button: #E83827;
+$red-dark: #8E2E36;
+$red-light-background: rgba(255, 121, 101, 0.12);
+$red-negative-50: rgba(255, 121, 101, 0.12);
+$red-negative-100: rgba(255, 121, 101, 0.3);
+$red-negative-400: #FF7965;
+
+// Text
+$text-primary: #FAFAFA;
+$text-secondary: #707F8D;
+
+// Border
+$border-sm: 1px;
+$border-md: 2px;
+$border-lg: 3px;
+
+// Z-index
+$z-index-back: -1;
+$z-index-default: 1;
+$z-index-low: 2;
+$z-index-medium: 3;
+$z-index-high: 4;
+$z-index-alert: 5;
+
+// Border-radius
+$border-radius-xs: 6px;
+$border-radius-sm: 8px;
+$border-radius-md: 10px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+
+// Font-size
+$font-size-xs: 11px;
+$font-size-sm: 13px;
+$font-size-md: 15px;
+$font-size-lg: 17px;
+$font-size-xl: 19px;
+
+// Spacing
+$spacing-xxs: 8px;
+$spacing-xs: 10px;
+$spacing-sm: 20px;
+$spacing-md: 25px;
+$spacing-lg: 30px;
+$spacing-xl: 35px;
+$spacing-xxl: 40px;
+
+// Shadow
+$box-shadow-popup: 0px 4px 26px 0px rgba(36, 36, 36, 1);
+$elevation-200: 0px 2px 8px 0px rgba(0, 0, 0, .24);
+$elevation-200-top: 0px -4px 8px 0px rgba(0, 0, 0, .12);
+$elevation-300: 4px 4px 24px 0px rgba(0, 0, 0, .12);
+$elevation-500: 0px 5px 16px -2px rgba(23, 23, 23, 0.48);
+$elevation-500-left: -8px 0px 16px 2px rgba(0, 0, 0, .24);
+$elevation-500-right: 8px 0px 16px 2px rgba(0, 0, 0, .24);
+$elevation-500-top: 0px 0px 6px 2px rgba(39, 40, 43, 1);
+$elevation-900: 0px 16px 24px -2px rgba(0, 0, 0, .24);
+
+// Outline
+$outlone-500: 0px 0px 0px 4px rgba($action-400, .12);

@@ -1,16 +1,31 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
-import { ButtonContextProvider, IButtonContextValue } from "./button.context";
-import { cn } from "../../../lib/utils/cn";
-import "./button.css";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
+import cn from "classnames";
 
-interface IButtonProps extends ComponentPropsWithoutRef<"button">, IButtonContextValue {}
+import { ButtonPrimitive } from "../Primitive/primitives";
 
-export const Button = forwardRef<HTMLButtonElement, IButtonProps>(
-  ({ isLoading, className, ...rest }: IButtonProps, ref) => {
+import { buttonVariants, type TButtonVariantsProps } from "./Button.variants";
+
+export type ButtonProps = PrimitiveProps<
+  ComponentPropsWithoutRef<"button"> &
+    TButtonVariantsProps & {
+      isLoading?: boolean;
+    }
+>;
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { className, intent, size, shape, isLoading, ...rest }: ButtonProps,
+    ref
+  ) => {
     return (
-      <ButtonContextProvider isLoading={isLoading}>
-        <button className={cn("button", className)} ref={ref} {...rest} />
-      </ButtonContextProvider>
+      <ButtonPrimitive.Root
+        className={cn(buttonVariants({ intent, size, shape }), className)}
+        ref={ref}
+        data-loading={isLoading}
+        {...rest}
+      />
     );
   }
 );
+
+Button.displayName = "Button";

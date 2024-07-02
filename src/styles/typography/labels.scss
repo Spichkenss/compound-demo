@@ -1,0 +1,50 @@
+// условный размер: font-family, font-weight, font-size, line-height, letter-spacing
+$bold-param: bold;
+$regular-param: regular;
+
+$bold-value: 600;
+$regular-value: 400;
+
+$body-params: (
+                (500, $bold-param): ("Inter", $bold-value, 15px, 16px),
+                (500, $regular-param): ("Inter", $regular-value, 15px, 16px),
+                (400, $bold-param): ("Inter", $bold-value, 13px, 16px),
+                (400, $regular-param): ("Inter", $regular-value, 13px, 16px),
+                (300, $bold-param): ("Inter", $bold-value, 11px, 12px),
+                (300, $regular-param): ("Inter", $regular-value, 11px, 12px),
+);
+
+@mixin get_label_params($size_type, $weight) {
+  $params: map-get($body-params, ($size_type, $weight));
+
+  font: {
+    family: nth($params, 1), sans-serif;
+    weight: nth($params, 2);
+    size: nth($params, 3);
+  };
+  line-height: nth($params, 4);
+}
+
+@mixin get_label_variants($size) {
+  &-bold {
+    @include get_label_params($size, $bold-param);
+  }
+
+  &-regular {
+    @include get_label_params($size, $regular-param);
+  }
+}
+
+.label {
+  &-500 {
+    @include get_label_variants(500);
+  }
+
+  &-400 {
+    @include get_label_variants(400);
+  }
+
+  &-300 {
+    @include get_label_variants(300);
+  }
+}

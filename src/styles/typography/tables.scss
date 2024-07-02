@@ -1,0 +1,47 @@
+// условный размер: font-family, font-weight, font-size, line-height, letter-spacing
+$bold-param: bold;
+$regular-param: regular;
+
+$body-params: (
+                (600, $bold-param): ("Inter", 600, 17px, 24px),
+                (600, $regular-param): ("Inter", 400, 17px, 24px),
+                (500, $bold-param): ("Inter", 600, 15px, 20px),
+                (500, $regular-param): ("Inter", 400, 15px, 20px),
+                (400, $bold-param): ("Inter", 600, 13px, 16px),
+                (400, $regular-param): ("Inter", 400, 13px, 16px),
+);
+
+@mixin get_table_params($size_type, $weight) {
+  $params: map-get($body-params, ($size_type, $weight));
+
+  font: {
+    family: nth($params, 1), sans-serif;
+    weight: nth($params, 2);
+    size: nth($params, 3);
+  };
+  line-height: nth($params, 4);
+}
+
+@mixin get_table_variants($size) {
+  &-bold {
+    @include get_table_params($size, $bold-param);
+  }
+
+  &-regular {
+    @include get_table_params($size, $regular-param);
+  }
+}
+
+.table {
+  &-600 {
+    @include get_table_variants(600);
+  }
+
+  &-500 {
+    @include get_table_variants(500);
+  }
+
+  &-400 {
+    @include get_table_variants(400);
+  }
+}

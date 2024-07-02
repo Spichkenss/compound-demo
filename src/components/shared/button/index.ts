@@ -1,4 +1,4 @@
-export { Button } from "./button";
-export { ButtonIcon } from "./button-icon";
-export { ButtonLabel } from "./button-label";
-export { ButtonLoader } from "./button-loader";
+export { Button } from "./Button";
+export { ButtonLabel } from "./ButtonLabel";
+export { ButtonLoader } from "./ButtonLoader";
+export { ButtonIcon } from "./ButtonIcon";
